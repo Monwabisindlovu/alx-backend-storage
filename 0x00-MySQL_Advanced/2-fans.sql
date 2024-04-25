@@ -1,14 +1,11 @@
--- Task: Rank country origins of bands by the number of (non-unique) fans
--- Create the necessary table by importing the provided SQL dump
--- cat metal_bands.sql | mysql -uroot -p holberton;
-
--- Your SQL queries should have a comment just before (i.e., syntax above)
-
--- Rank country origins of bands by the number of (non-unique) fans
--- and store the result in the 'tmp_res' file
+-- Create a temporary table to store the counts of fans per country
+CREATE TEMPORARY TABLE fan_counts AS
 SELECT origin, COUNT(*) AS nb_fans
 FROM metal_bands
-GROUP BY origin
+GROUP BY origin;
+
+-- Select the country origins and their corresponding fan counts, ordered by fan count
+SELECT origin, nb_fans
+FROM fan_counts
 ORDER BY nb_fans DESC;
 
--- Note: The result will be stored in the 'tmp_res' file.
