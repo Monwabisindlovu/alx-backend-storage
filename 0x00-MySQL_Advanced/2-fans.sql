@@ -1,6 +1,4 @@
 -- Task: Rank country origins of bands by the number of (non-unique) fans
--- All your files should start by a comment describing the task
-
 -- Create the necessary table by importing the provided SQL dump
 -- cat metal_bands.sql | mysql -uroot -p holberton;
 
