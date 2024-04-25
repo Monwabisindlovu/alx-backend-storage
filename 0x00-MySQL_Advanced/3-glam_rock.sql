@@ -1,7 +1,10 @@
--- SQL script to list all bands with Glam rock as their main style, ranked by their longevity
-SELECT band_name, (2022 - MIN(formed)) AS lifespan
-FROM metal_bands
-WHERE style = 'Glam rock'
-GROUP BY band_name
+-- Old school band
+-- List all bands with Glam rock as their main style, ranked by their longevity
+SELECT band_name, 
+    (CASE 
+        WHEN split IS NULL THEN 2022 - formed 
+        ELSE 2022 - formed + split - formed 
+    END) AS lifespan 
+FROM metal_bands 
+WHERE style = 'Glam rock' 
 ORDER BY lifespan DESC;
-
