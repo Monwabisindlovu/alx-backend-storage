@@ -28,8 +28,8 @@ Latvia	23
 Iceland	22
 Hungary	19
 Ireland	18
-Serbia	17
 Argentina	17
+Serbia	17
 Israel	16
 Iran	15
 Mexico	14
@@ -39,8 +39,8 @@ Chile	13
 Slovak Republic	12
 Bulgaria	12
 New Zealand	11
-Syria	10
 Croatia	10
+Syria	10
 Lithuania	9
 Slovenia	9
 India	8
@@ -53,34 +53,23 @@ South Africa	5
 Singapore	5
 Malta	5
 Faroe Islands	5
-Costa Rica	4
 Lebanon	4
 Peru	4
 Bosnia and Herzegovina	4
-Greece, Sweden	3
+Costa Rica	4
 Colombia	3
 China	3
 United Kingdom, USA	3
 Taiwan	3
 Luxembourg	3
+Greece, Sweden	3
+Sri Lanka	2
+Denmark, USA	2
+UAE	2
 Monaco	2
 Moldova	2
 Egypt	2
 USA, Cyprus	2
-Sri Lanka	2
-Denmark, USA	2
-UAE	2
-Mexico, USA	1
-Saudi Arabia	1
-Canada, France	1
-Belgium, United Kingdom	1
-Georgia	1
-Sweden, Finland	1
-Albania	1
-Israel, The Netherlands	1
-Australia, United Kingdom	1
-Jersey	1
-Russia, Canada	1
 Bahrain	1
 Bosnia and Herzegovina, Croatia	1
 Lithuania, Germany	1
@@ -113,3 +102,14 @@ Portugal, United Kingdom	1
 Lithuania, United Kingdom	1
 Ecuador	1
 Norway, Finland	1
+Mexico, USA	1
+Saudi Arabia	1
+Canada, France	1
+Belgium, United Kingdom	1
+Georgia	1
+Sweden, Finland	1
+Albania	1
+Israel, The Netherlands	1
+Australia, United Kingdom	1
+Jersey	1
+Russia, Canada	1
