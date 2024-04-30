@@ -1,48 +1,35 @@
 #!/usr/bin/env python3
-"""
-Web module for implementing an expiring web cache and tracker
-"""
+""" implement the get_page function """
 import requests
 import redis
-import time
+from functools import wraps
+from typing import Callable
+cache = redis.Redis()
 
 
+def counter(method: Callable) -> Callable:
+    """ set an expiration on a key """
+
+    @wraps(method)
+    def wrapper(url) -> Callable:
+        """ function wrapper """
+        count_key = f"count:{url}"
+        print(count_key)
+        result_key = f"result:{url}"
+
+        cache.incr(count_key)
+        result = cache.get(result_key)
+        if result:
+            return result.decode('utf8')
+        result = method(url)
+        cache.set(count_key, 0)
+        cache.setex(result_key, 10, result)
+        return result
+    return wrapper
+
+
+@counter
 def get_page(url: str) -> str:
-    """
-    Retrieve the HTML content of a URL and cache the result
-    with an expiration time of 10 seconds.
-    Also track how many times the URL was accessed.
-    Args:
-        url: The URL to retrieve the HTML content from.
-    Returns:
-        The HTML content of the URL.
-    """
-    # Connect to Redis
-    redis_client = redis.Redis()
+    """ get a url respobse """
 
-    # Increment the count of accesses for this URL
-    url_count_key = f"count:{url}"
-    redis_client.incr(url_count_key)
-
-    # Check if the HTML content is cached
-    cached_content = redis_client.get(url)
-    if cached_content:
-        return cached_content.decode()
-
-    # If not cached, fetch the HTML content from the URL
-    response = requests.get(url)
-    html_content = response.text
-
-    """ Cache the HTML content with an expiration
-    time of 10 seconds"""
-    redis_client.setex(url, 10, html_content)
-
-    return html_content
-
-
-if __name__ == "__main__":
-    url = "http://slowwly.robertomurray.co.uk/delay/1000/url/http://www.google.com"
-    start_time = time.time()
-    print(get_page(url))
-    end_time = time.time()
-    print(f"Time taken: {end_time - start_time} seconds")
+    return requests.get(url)
