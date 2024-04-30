@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Output the list of databases in MongoDB
+echo "show dbs" | mongo
+
