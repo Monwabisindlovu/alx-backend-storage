@@ -1,7 +1,3 @@
 #!/usr/bin/env python3
 // my comment
-from pymongo import MongoClient
-
-client = MongoClient('mongodb://localhost:27017/')
-db = client.my_db
 db.school.insert_one({"name": "Holberton school"})
